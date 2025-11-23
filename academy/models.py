@@ -12,6 +12,7 @@ class Course(models.Model):
     def __str__(self):
         return self.course_name
     
+    
 class Trainer(models.Model):
     expertise_choice = [
     ("python", "Python"),
