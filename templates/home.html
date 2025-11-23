@@ -1,0 +1,37 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <nav>
+        <a href="{% url 'home' %}">Home</a> |
+        <a href="{% url 'course' %}">Courses</a> |
+        <a href="{% url 'trainer' %}">Trainers</a> |
+        <a href="{% url 'student' %}">Students</a>
+    </nav>
+    <h1>TechLearn Academy</h1>
+    <table>
+        <thead>
+            <tr>
+                <th></th>
+                <th>Courses</th>
+                <th>Trainers</th>
+                <th>Students</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Total</td>
+                <td>{{total_courses}}</td>
+                <td>{{total_trainers}}</td>
+                <td>{{total_students}}</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>

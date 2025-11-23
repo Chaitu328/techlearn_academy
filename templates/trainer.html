@@ -1,0 +1,31 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trainers Page</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <h1>Trainers List</h1>
+        <table>
+        <thead>
+            <tr>
+                <th>Full Name</th>
+                <th>Expertise</th>
+                <th>Email</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for trainer in trainers %}
+            <tr>
+                <td>{{trainer.first_name}} {{trainer.last_name}}</td>
+                <td>{{trainer.expertise}}</td>
+                <td>{{trainer.email}}</td>
+            </tr>
+        </tbody>
+        {% endfor %}
+    </table>
+</body>
+</html>

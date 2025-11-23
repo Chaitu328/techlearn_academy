@@ -1,0 +1,33 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Courses Page</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <h1>Courses List</h1>
+        <table>
+        <thead>
+            <tr>
+                <th>Course Name</th>
+                <th>Description</th>
+                <th>Duration(in weeks)</th>
+                <th>Image</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for course in courses %}
+            <tr>
+                <td><img src="{{ course.course_image.url }}" alt=""></td>
+                <td>{{course.course_name}}</td>
+                <td>{{course.description}}</td>
+                <td>{{course.duration}}</td>
+            </tr>  
+        {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
