@@ -54,3 +54,31 @@ tbody tr:last-child td {
     text-align: center;
     padding-top: 100px;
 }
+
+.navbar {
+    background: #4a90e2;
+    padding: 11px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.navbar a {
+    margin: 0 12px;
+    color: white;
+    text-decoration: none;
+    font-weight: bolder;
+    font-size: 15px;
+    padding: 6px 10px;
+    border-radius: 4px;
+    transition: background 0.2s;
+}
+
+.nav-right a {
+    margin-left: 20px;
+}
+
+.navbar a:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
