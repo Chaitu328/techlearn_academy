@@ -15,16 +15,16 @@
                 <th>Course Name</th>
                 <th>Description</th>
                 <th>Duration(in weeks)</th>
-                <th>Image</th>
+                <th>Course_Image</th>
             </tr>
         </thead>
         <tbody>
             {% for course in courses %}
-            <tr>
-                <td><img src="{{ course.course_image.url }}" alt=""></td>
+            <tr>         
                 <td>{{course.course_name}}</td>
                 <td>{{course.description}}</td>
                 <td>{{course.duration}}</td>
+                <td><img src="{{ course.course_image.url }}" alt="{{ course.first_name }}" width="100px"></td>
             </tr>  
         {% endfor %}
         </tbody>

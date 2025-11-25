@@ -1,0 +1,77 @@
+/* Page layout */
+form, .form-wrapper {
+    max-width: 420px;
+    margin: 40px auto;
+    padding: 24px;
+    background: #ffffff;
+    border: 1px solid #e5e5e5;
+    border-radius: 8px;
+}
+
+/* Field groups */
+div {
+    margin-bottom: 24px;
+}
+
+/* Labels */
+label {
+    display: block;
+    font-size: 15px;
+    font-weight: 600;
+    margin-bottom: 6px;
+    color: #333;
+}
+
+/* Inputs */
+input[type="text"],
+input[type="password"] {
+    width: 100%;
+    padding: 10px 12px;
+    font-size: 15px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus {
+    border-color: #4a63e7;
+    box-shadow: 0 0 0 3px rgba(74, 99, 231, 0.15);
+}
+
+/* Help text */
+.helptext {
+    font-size: 13px;
+    color: #666;
+    margin-bottom: 8px;
+}
+
+.helptext ul {
+    padding-left: 18px;
+    margin: 6px 0;
+}
+
+.helptext li {
+    margin-bottom: 4px;
+}
+
+/* Optional: submit button styling */
+button,
+input[type="submit"] {
+    width: 100%;
+    margin-top: 12px;
+    padding: 12px;
+    background: #4a63e7;
+    border: none;
+    border-radius: 6px;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+button:hover,
+input[type="submit"]:hover {
+    background: #3a52d1;
+}
