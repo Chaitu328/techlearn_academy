@@ -1,21 +1,25 @@
+{% extends 'navbar.html' %}
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Courses Page</title>
+    <title>{% block title %}Course Page{% endblock %}</title>
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 <body>
+    {% block content %}
     <h1>Courses List</h1>
+    <a href="{% url 'add_course' %}" style=" margin: 10px 50px 20px 0; padding: 8px 14px;border: 2px solid #4a90e2; color: #4a90e2; text-decoration: none; border-radius: 5px; font-size: 15px;">Add Course</a>
+    <br><br>
         <table>
         <thead>
             <tr>
                 <th>Course Name</th>
                 <th>Description</th>
                 <th>Duration(in weeks)</th>
-                <th>Course_Image</th>
+                <th>Action</th>
             </tr>
         </thead>
         <tbody>
@@ -24,10 +28,17 @@
                 <td>{{course.course_name}}</td>
                 <td>{{course.description}}</td>
                 <td>{{course.duration}}</td>
-                <td><img src="{{ course.course_image.url }}" alt="{{ course.first_name }}" width="100px"></td>
+                <td>
+                    <div>
+                        <a href=""><i class="fa fa-eye"></i></a>
+                        <a href=""><i class="fa fa-edit"></i></a>
+                        <a href=""><i class="fa fa-trash"></i></a>
+                    </div>
+                </td>
             </tr>  
         {% endfor %}
         </tbody>
     </table>
+    {% endblock %}
 </body>
 </html>
