@@ -1,0 +1,33 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View {{Title}}</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    {% if course %}
+    <h2>{{course.course_name}}</h2>
+    <img src="{{course.course_image.url}}" alt="">
+    <p>Description: {{course.description}}</p>
+    <p>Duration: {{course.duration}}</p>
+    {% endif %}
+
+    {% if trainer %}
+    <h2>{{trainer.first_name}} {{trainer.last_name}}</h2>
+    <img src="{{trainer.trainer_photo.url}}" alt="">
+    <p>Expertise: {{trainer.expertise}}</p>
+    <p>Email: {{trainer.email}}</p>
+    {% endif %}
+    
+    {% if student %}
+    <h2>{{student.first_name}}</h2>
+    <p>Email: {{student.email}}</p>
+    <p>Enrolled(True/False): {{student.is_active}}</p>
+    <p>Trainer: {{student.trainer}}</p>
+    <p>Enrolled Course: {{student.enrolled_course}}</p>
+    {% endif %}
+</body>
+</html>

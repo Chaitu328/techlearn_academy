@@ -34,7 +34,7 @@
                 <td>{{student.is_active}}</td>
                 <td>
                     <div>
-                        <a href=""><i class="fa fa-eye"></i></a>
+                        <a href="{% url 'view_student' student.id %}"><i class="fa fa-eye"></i></a>
                         <a href="{% url 'edit_student' student.id%}"><i class="fa fa-edit"></i></a>
                         <a href=""><i class="fa fa-trash"></i></a>
                     </div>

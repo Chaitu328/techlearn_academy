@@ -130,3 +130,31 @@ def edit_student(request,id):
         'obj': student,
     }
     return render(request,'edit.html',context)
+
+
+def view_course(request,id):
+    course = get_object_or_404(Course,id=id)
+    print(course)
+    context = {
+        'course': course,
+        'Title': "Course"
+    }
+    return render(request,'view.html',context)
+
+
+def view_trainer(request,id):
+    trainer = get_object_or_404(Trainer,id=id)
+    context = {
+        'trainer' : trainer,
+        "Title" : 'Trainer'
+    }
+    return render(request,'view.html',context)
+
+
+def view_student(request,id):
+    student = get_object_or_404(Student,id=id)
+    context = {
+        'student' : student,
+        "Title" : 'Student'
+    }    
+    return render(request,'view.html',context)

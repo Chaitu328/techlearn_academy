@@ -5,7 +5,7 @@ class Course(models.Model):
     course_name = models.CharField(max_length=50)
     description = models.TextField(max_length=250)
     duration = models.PositiveIntegerField()
-    course_image = models.ImageField(upload_to='images',default="course1.png",blank=True)
+    course_image = models.ImageField(upload_to='images',default="default.jpg",blank=True)
     created_at = models.DateField(auto_now_add=True)
     updated_at = models.DateField(auto_now=True)
 

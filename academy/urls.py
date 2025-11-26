@@ -11,4 +11,7 @@ urlpatterns = [
     path('courses/edit/<int:id>/',views.edit_course,name='edit_course'),
     path('trainers/edit/<int:id>/',views.edit_trainer,name='edit_trainer'),
     path('students/edit/<int:id>/',views.edit_student,name='edit_student'),
+    path('courses/view/<int:id>/',views.view_course,name='view_course'),
+    path('trainers/view/<int:id>/',views.view_trainer,name='view_trainer'),
+    path('students/view/<int:id>/',views.view_student,name='view_student'),
 ]

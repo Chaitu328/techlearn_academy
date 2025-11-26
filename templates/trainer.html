@@ -30,7 +30,7 @@
                 <td>{{trainer.email}}</td>
                 <td>
                     <div>
-                        <a href=""><i class="fa fa-eye"></i></a>
+                        <a href="{% url 'view_trainer' trainer.id %}"><i class="fa fa-eye"></i></a>
                         <a href="{% url 'edit_trainer' trainer.id %}"><i class="fa fa-edit"></i></a>
                         <a href=""><i class="fa fa-trash"></i></a>
                     </div>

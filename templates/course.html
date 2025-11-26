@@ -30,7 +30,7 @@
                 <td>{{course.duration}}</td>
                 <td>
                     <div>
-                        <a href=""><i class="fa fa-eye"></i></a>
+                        <a href="{% url 'view_course' course.id %}"><i class="fa fa-eye"></i></a>
                         <a href="{% url 'edit_course' course.id %}"><i class="fa fa-edit"></i></a>
                         <a href=""><i class="fa fa-trash"></i></a>
                     </div>
