@@ -5,7 +5,7 @@ class Course(models.Model):
     course_name = models.CharField(max_length=50)
     description = models.TextField(max_length=250)
     duration = models.PositiveIntegerField()
-    course_image = models.ImageField(upload_to='images',default="default.jpg",blank=True)
+    course_image = models.ImageField(upload_to='images',default="images/default.jpg",blank=True)
     created_at = models.DateField(auto_now_add=True)
     updated_at = models.DateField(auto_now=True)
 
@@ -23,7 +23,7 @@ class Trainer(models.Model):
     last_name = models.CharField(max_length=25)
     email = models.EmailField(unique=True)
     expertise = models.CharField(max_length=100, choices=expertise_choice)
-    trainer_photo = models.ImageField(upload_to='images/', blank=True, null=True)
+    trainer_photo = models.ImageField(upload_to='images',default="images/default.jpg", blank=True)
 
     def __str__(self):
         return f'{self.first_name} {self.last_name}'

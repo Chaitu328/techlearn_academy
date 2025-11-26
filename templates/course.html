@@ -29,10 +29,15 @@
                 <td>{{course.description}}</td>
                 <td>{{course.duration}}</td>
                 <td>
-                    <div>
+                    <div style="display:flex; gap:5px; align-items:center">
                         <a href="{% url 'view_course' course.id %}"><i class="fa fa-eye"></i></a>
                         <a href="{% url 'edit_course' course.id %}"><i class="fa fa-edit"></i></a>
-                        <a href=""><i class="fa fa-trash"></i></a>
+                        <form action="{% url 'delete_course' course.id %}" method="POST">
+                            {% csrf_token %}
+                            <button type="submit" style="border:none; background:none; cursor:pointer; margin-left: -5px;">
+                                <i class="fa fa-trash"></i>
+                            </button>
+                        </form>
                     </div>
                 </td>
             </tr>  

@@ -158,3 +158,22 @@ def view_student(request,id):
         "Title" : 'Student'
     }    
     return render(request,'view.html',context)
+
+
+def delete_course(request,id):
+    course = get_object_or_404(Course,id=id)
+    if request.method == 'POST':
+        course.delete()
+    return redirect('course')
+
+def delete_trainer(request,id):
+    trainer = get_object_or_404(Trainer,id=id)
+    if request.method == 'POST':
+        trainer.delete()
+    return redirect('trainer')
+
+def delete_student(request,id):
+    student = get_object_or_404(Student,id=id)
+    if request.method == 'POST':
+        student.delete()
+    return redirect('student')
