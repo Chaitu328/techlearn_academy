@@ -2,6 +2,7 @@ from django.shortcuts import render,redirect,get_object_or_404
 from academy.models import Course,Trainer,Student
 from .forms import CourseForm,TrainerForm,StudentForm
 from .models import Course,Trainer,Student
+from django.contrib.auth.decorators import login_required,permission_required
 # Create your views here.
 def course(request):
     courses = Course.objects.all()
@@ -25,6 +26,9 @@ def student(request):
     return render(request, 'student.html',context)
 
 
+# ---------------------ADD--------------------
+@login_required
+@permission_required('academy.add_course',raise_exception=True)
 def add_course(request):
     if request.method == 'POST':
         form =CourseForm(request.POST,request.FILES)
@@ -41,6 +45,9 @@ def add_course(request):
     }
     return render(request,'add.html',context)
 
+
+@login_required
+@permission_required('academy.add_trainer',raise_exception=True)
 def add_trainer(request):
     if request.method == 'POST':
         form = TrainerForm(request.POST,request.FILES)
@@ -57,6 +64,9 @@ def add_trainer(request):
     }
     return render(request,'add.html', context)
 
+
+@login_required
+@permission_required('academy.add_student',raise_exception=True)
 def add_student(request):
     if request.method == 'POST':
         form = StudentForm(request.POST,request.FILES)
@@ -74,6 +84,11 @@ def add_student(request):
     return render(request,'add.html', context)
 
 
+# ---------------------EDIT----------------
+
+
+@login_required
+@permission_required('academy.change_course',raise_exception=True)
 def edit_course(request,id):
     course = get_object_or_404(Course,id=id)
     if request.method == 'POST':
@@ -93,6 +108,9 @@ def edit_course(request,id):
     }
     return render(request,'edit.html',context)
 
+
+@login_required
+@permission_required('academy.change_trainer',raise_exception=True)
 def edit_trainer(request,id):
     trainer = get_object_or_404(Trainer,id=id)
     if request.method == 'POST':
@@ -112,6 +130,9 @@ def edit_trainer(request,id):
     }
     return render(request,'edit.html',context)
 
+
+@login_required
+@permission_required('academy.change_student',raise_exception=True)
 def edit_student(request,id):
     student = get_object_or_404(Student,id=id)
     if request.method == 'POST':
@@ -132,6 +153,8 @@ def edit_student(request,id):
     return render(request,'edit.html',context)
 
 
+# ----------------VIEW----------------------
+
 def view_course(request,id):
     course = get_object_or_404(Course,id=id)
     print(course)
@@ -142,6 +165,7 @@ def view_course(request,id):
     return render(request,'view.html',context)
 
 
+@login_required
 def view_trainer(request,id):
     trainer = get_object_or_404(Trainer,id=id)
     context = {
@@ -151,6 +175,8 @@ def view_trainer(request,id):
     return render(request,'view.html',context)
 
 
+@login_required
+@permission_required('academy.view_student',raise_exception=True)
 def view_student(request,id):
     student = get_object_or_404(Student,id=id)
     context = {
@@ -159,19 +185,28 @@ def view_student(request,id):
     }    
     return render(request,'view.html',context)
 
+# ------------------DELETE----------------------
 
+@login_required
+@permission_required('academy.delete_course',raise_exception=True)
 def delete_course(request,id):
     course = get_object_or_404(Course,id=id)
     if request.method == 'POST':
         course.delete()
     return redirect('course')
 
+
+@login_required
+@permission_required('academy.delete_trainer',raise_exception=True)
 def delete_trainer(request,id):
     trainer = get_object_or_404(Trainer,id=id)
     if request.method == 'POST':
         trainer.delete()
     return redirect('trainer')
 
+
+@login_required
+@permission_required('academy.delete_student',raise_exception=True)
 def delete_student(request,id):
     student = get_object_or_404(Student,id=id)
     if request.method == 'POST':

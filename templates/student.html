@@ -17,9 +17,6 @@
         <thead>
             <tr>
                 <th>Full Name</th>
-                <th>Email</th>
-                <th>Enrolled Class Name</th>
-                <th>Trainer Name</th>
                 <th>Active?</th>
                 <th>Action</th>
             </tr>
@@ -28,12 +25,9 @@
             {% for student in students %}
             <tr>
                 <td>{{student.first_name}} {{student.last_name}}</td>
-                <td>{{student.email}}</td>
-                <td>{{student.enrolled_course}}</td>
-                <td>{{student.trainer}}</td>
                 <td>{{student.is_active}}</td>
                 <td>
-                    <div style="display:flex; gap:5px; align-items:center">
+                    <div >
                         <a href="{% url 'view_student' student.id %}"><i class="fa fa-eye"></i></a>
                         <a href="{% url 'edit_student' student.id%}"><i class="fa fa-edit"></i></a>
                         <form action="{% url 'delete_student' student.id %}" method="POST">

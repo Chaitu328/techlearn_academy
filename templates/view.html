@@ -23,7 +23,7 @@
     {% endif %}
     
     {% if student %}
-    <h2>{{student.first_name}}</h2>
+    <h2>{{student.first_name}} {{student.last_name}}</h2>
     <p>Email: {{student.email}}</p>
     <p>Enrolled(True/False): {{student.is_active}}</p>
     <p>Trainer: {{student.trainer}}</p>
